@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import SocialIcon from "../components/SocialIcon.astro";
+import "../css/animation.css";
 
 const bio = await getCollection("bio");
 const links = await getCollection("links");
@@ -32,17 +33,20 @@ const { Content } = await profile.render();
             <a
               class="block px-2 text-white"
               href="https://inbot.info/"
-              target="_blank">Web</a>
+              target="_blank">Web</a
+            >
           </li>
           <li class="text-lg">
             <a
               class="block px-2 text-white"
               href="https://inbot.info/Blog"
-              target="_blank">Posts</a>
+              target="_blank">Posts</a
+            >
           </li>
         </ul>
       </nav>
-      <ul class="flex flex-col gap-y-4 pt-10 min-w-[400px]">
+      <ul class="flex flex-col gap-y-4 pt-10 min-w-[400px] relative">
+        <div class="background_gradient absolute"></div>
         {
           links
             .sort((a, b) => {
@@ -70,7 +74,7 @@ const { Content } = await profile.render();
             ))
         }
       </ul>
-      <ul class="flex gap-4 items-center justify-center flex-wrap pt-10">
+      <ul class="flex gap-4 items-center justify-center flex-wrap pt-10 z-10">
         {
           socials
             .sort((a, b) => {
